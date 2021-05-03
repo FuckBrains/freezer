@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>Freezer 🧊</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    </head>
+
+    <body>
+        {% if notification %}
+            <blockquote>{{ notification }}</blockquote>
+        {% endif %}
+
+        <h2>Make a video</h2>
+        <button onclick="test()">Test Data</button>
+
+        <form method="post" action="makevideo">
+            <fieldset>
+                <legend>Video</legend>
+                <!-- song -->
+                <p>
+                    <label for="song">Song (YouTube/Soundcloud Link)</label>
+                    <input type="text" name="song" placeholder="https://soundcloud.com/oliverxfrancis/3deep-1">
+                </p>
+
+                <!-- background -->
+                <p>
+                    <label for="background">Background (Direct link to a GIF/PNG/JPG)</label>
+                    <input type="text" name="background" placeholder="https://thumbs.gfycat.com/TalkativeFriendlyCapybara-max-1mb.gif">
+                </p>
+
+                <!-- reverb -->
+                <p>
+                    <input type="checkbox" name="reverb" checked>
+                    <label for="reverb">Reverb</label>
+                </p>
+
+                <!-- speed -->
+                <p>
+                    <label for="speed">Speed (0-5) (if this looks and performs like shit just click on it and scroll):</label>
+                    <input type="number" name="speed" min="0.0" max="5.0" step=".1" value="0.9">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Song</legend>
+                <!-- artist -->
+                <p>
+                    <label for="artist">Artist</label>
+                    <input type="text" name="artist" placeholder="oliver">
+                </p>
+
+                <!-- title -->
+                <p>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" placeholder="3 deep">
+                </p>
+
+                <!-- title adlib -->
+                <p>
+                    <label for="title_adlib">Title Adlib</label>
+                    <input type="text" name="title_adlib" placeholder="(slowed & reverb)" value="(slowed & reverb)">
+                </p>
+
+
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Social Media (Optional)</legend>
+                <!-- twitter -->
+                <p>
+                    <label for="twitter">Twitter</label>
+                    <input type="text" name="twitter" placeholder="https://twitter.com/oliverxfrancis">
+                </p>
+
+                <!-- soundcloud -->
+                <p>
+                    <label for="soundcloud">Soundcloud</label>
+                    <input type="text" name="soundcloud" placeholder="https://soundcloud.com/oliverxfrancis">
+                </p>
+                
+                <!-- spotify -->
+                <p>
+                    <label for="spotify">Spotify</label>
+                    <input type="text" name="spotify" placeholder="https://open.spotify.com/artist/0WvTK38rXqPCD5pZMDuX20">
+                </p>
+            </fieldset>
+
+            <!-- submit -->
+            <input type="submit" value="Freeze 🧊">
+        </form>
+
+        <style>
+            input[type=text] {
+                width: 80%;
+            }
+        </style>
+    </body>
+
+    <script>
+        function test() {
+            // turns all placeholders to values
+            document.querySelectorAll('input').forEach(element => {
+                if(!element.value) {
+                    element.value = element.placeholder
+                }
+            });
+        }
+    </script>
+
+</html>
